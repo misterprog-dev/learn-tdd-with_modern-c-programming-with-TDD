@@ -15,3 +15,7 @@ TEST_F(SoundexEncoding, RetainsSoleLetterOfOneLetterWord) {
 TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigits) {
    ASSERT_THAT(soundex.encode("I"), Eq("I000"));
 }
+
+TEST_F(SoundexEncoding, ReplacesConsonantsWithAppropriateDigits) {
+   ASSERT_THAT(soundex.encode("Ab"), Eq("A100"));
+}

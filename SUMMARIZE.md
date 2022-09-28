@@ -13,3 +13,9 @@
 
 - Once you finish implementing correct behavior with a solid design, you might or might not consider optimizing performance.
 ```
+
+````
+- The rule of thumb for TDD is one assert per test. It’s a good idea that promotes focusing on the behavior of the tests, instead of centering tests around functions. 
+
+- A mantra surfaced in the early TDD days that says, “Test everything that can possibly break.”
+```

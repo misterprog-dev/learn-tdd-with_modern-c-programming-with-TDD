@@ -30,7 +30,8 @@ class Soundex {
          {'s', "2"}, {'x', "2"}, {'z', "2"}, {'d', "3"}, {'t', "3"},
          {'m', "5"}, {'n', "5"}, {'r', "6"}
       };
-      return encodings.find(letter)->second;
+      auto it = encodings.find(letter);
+      return it == encodings.end() ? "" : it->second;
    }
 
    private:

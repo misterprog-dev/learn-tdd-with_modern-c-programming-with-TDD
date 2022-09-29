@@ -27,3 +27,7 @@ TEST_F(SoundexEncoding, IgnoresNonAlphabetics) {
 TEST_F(SoundexEncoding, ReplacesMutlipleConsonantsWithDigits) {
    ASSERT_THAT(soundex.encode("Afdg"), Eq("A132"));
 }
+
+TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
+   ASSERT_THAT(soundex.encode("Dcdlb"), Eq("D234"));
+}

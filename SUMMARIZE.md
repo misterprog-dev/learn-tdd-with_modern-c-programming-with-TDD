@@ -19,3 +19,7 @@
 
 - A mantra surfaced in the early TDD days that says, “Test everything that can possibly break.”
 ```
+
+````
+- One thing at a time, however. When test-driving, you want to keep each step in the cycle distinct. When writing a test, don’t go off and refactor. Don’t refactor when trying to get a test to pass, either. 
+```

@@ -23,3 +23,7 @@ TEST_F(SoundexEncoding, ReplacesConsonantsWithAppropriateDigits) {
 TEST_F(SoundexEncoding, IgnoresNonAlphabetics) {
    ASSERT_THAT(soundex.encode("A#"), Eq("A000"));
 }
+
+TEST_F(SoundexEncoding, ReplacesMutlipleConsonantsWithDigits) {
+   ASSERT_THAT(soundex.encode("Afdg"), Eq("A132"));
+}

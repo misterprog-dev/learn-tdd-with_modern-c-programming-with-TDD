@@ -31,3 +31,7 @@ TEST_F(SoundexEncoding, ReplacesMutlipleConsonantsWithDigits) {
 TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
    ASSERT_THAT(soundex.encode("Dcdlb"), Eq("D234"));
 }
+
+TEST_F(SoundexEncoding, IgnoresVowelLikeLetters) {
+   ASSERT_THAT(soundex.encode("Baeiouhycdl"), Eq("B234"));
+}

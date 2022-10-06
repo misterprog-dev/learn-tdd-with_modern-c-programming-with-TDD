@@ -28,3 +28,8 @@ Ask yourself, “What might I have done differently?”
 If a stream of subsequent tests continues to pass, consider reverting your effort.
 
 ```
+
+```
+- Part of doing TDD well is thinking outside of what we’re given.
+```
+

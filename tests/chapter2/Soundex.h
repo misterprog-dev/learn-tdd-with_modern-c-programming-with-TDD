@@ -5,6 +5,7 @@
 
 class Soundex {
    static const size_t MaxCodeLength{4};
+   const std::string notADigit{"*"};
 
    public:
    std::string encode(const std::string& word) const {
@@ -36,7 +37,9 @@ class Soundex {
       std::string encoding;
       for(auto letter: word) {
          if (isComplete(encoding)) break;
-         if (encodedDigit(letter) != lastDigit(encoding))
+
+         auto digit = encodedDigit(letter);
+         if (digit != notADigit && digit!= lastDigit(encoding))
             encoding += encodedDigit(letter);
       }
       return encoding;
@@ -61,12 +64,12 @@ class Soundex {
          {'m', "5"}, {'n', "5"}, {'r', "6"}
       };
       auto it = encodings.find(letter);
-      return it == encodings.end() ? "" : it->second;
+      return it == encodings.end() ? notADigit : it->second;
    }
 
    private: 
    std::string lastDigit(const std::string& encoding) const {
-      if (encoding.empty()) return "";
+      if (encoding.empty()) return notADigit;
       return std::string(1, encoding.back());
    }
 };

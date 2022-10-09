@@ -9,7 +9,7 @@ class Soundex {
 
    public:
    std::string encode(const std::string& word) const {
-      return zeroPad(upperFront(head(word)) + encodedDigits(tail(word)));
+      return zeroPad(upperFront(head(word)) + tail(encodedDigits(word)));
    }
 
    private:
@@ -35,7 +35,9 @@ class Soundex {
    private:
    std::string encodedDigits(const std::string& word) const {
       std::string encoding;
-      for(auto letter: word) {
+      encoding += encodedDigit(word.front());
+
+      for(auto letter: tail(word)) {
          if (isComplete(encoding)) break;
 
          auto digit = encodedDigit(letter);
@@ -52,7 +54,7 @@ class Soundex {
 
    private:
    bool isComplete(const std::string& word) const {
-      return word.length() == MaxCodeLength - 1;
+      return word.length() == MaxCodeLength;
    }
 
    public:

@@ -63,8 +63,13 @@ class Soundex {
          {'s', "2"}, {'x', "2"}, {'z', "2"}, {'d', "3"}, {'t', "3"},
          {'m', "5"}, {'n', "5"}, {'r', "6"}
       };
-      auto it = encodings.find(letter);
+      auto it = encodings.find(lower(letter));
       return it == encodings.end() ? notADigit : it->second;
+   }
+
+   private:
+   char lower(const char letter) const {
+      return std::tolower(static_cast<unsigned char>(letter));
    }
 
    private: 
